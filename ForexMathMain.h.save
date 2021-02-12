@@ -1,0 +1,53 @@
+/***************************************************************
+ * Name:      ForexMathMain.h
+ * Purpose:   Defines Application Frame
+ * Author:    SK MBATHA (skatlego.mbatha@gmail.com)
+ * Created:   2020-12-15
+ * Copyright: SK MBATHA ()
+ * License:
+ **************************************************************/
+
+#ifndef FOREXMATHMAIN_H
+#define FOREXMATHMAIN_H
+
+
+
+#include "ForexMathApp.h"
+#include "wx/wx.h"
+
+#include "GUIFrame.h"
+
+class ForexMathFrame: public GUIFrame
+{
+    public:
+        ForexMathFrame(wxFrame *frame);
+        ~ForexMathFrame();
+    private:
+        DECLARE_EVENT_TABLE()
+        void RefreshFields();
+        bool allFilled();
+        void getValues();
+        void answerShow(wxTextCtrl* ptr,float value);
+        int CheckForInputError(wxTextCtrl* ptr);
+        int CheckForInputEmptyError(wxTextCtrl* ptr);
+        void OnToggleCurrency();
+        virtual void OnClear(wxCommandEvent &event);
+        virtual void OnCalculate(wxCommandEvent &event);
+        virtual void OnHelp(wxCommandEvent &event);
+        virtual void OnClose(wxCloseEvent& event);
+        virtual void OnQuit(wxCommandEvent& event);
+        virtual void OnAbout(wxCommandEvent& event);
+
+        ///Local variables
+       double v_Take_Profit=0;
+       double v_TP_SL=0;
+       double v_Current_Price=0;
+       double v_Lot=0;
+       double v_No_of_Digits=0;
+       double v_leverage=0;
+       double v_Margin=0;
+       int last_entry=0;
+       bool isToggled=false;
+};
+
+#endif // FOREXMATHMAIN_H

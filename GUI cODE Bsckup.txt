@@ -1,0 +1,17 @@
+	this->SetSizer( bSizer1 );
+	this->Layout();
+    // Create a menu bar
+    wxMenu *fileMenu = new wxMenu;
+    wxMenu *helpMenu = new wxMenu;
+    wxMenu *aboutMenu = new wxMenu;
+
+    helpMenu->Append(wxID_HELP, wxT("&Help...\tF1"),wxT("Show how to use app."));
+    fileMenu->Append(wxID_EXIT, wxT("E&xit\tAlt-X"),wxT("Quit this program."));
+    aboutMenu->Append(wxID_ABOUT, wxT("A&bout\tAlt-Y"),wxT("About the program."));
+    // Now append the freshly created menu to the menu bar...
+    m_menubar1 = new wxMenuBar();
+    m_menubar1->Append(fileMenu, wxT("&File"));
+    m_menubar1->Append(helpMenu, wxT("&Help"));
+    m_menubar1->Append(aboutMenu, wxT("&About"));
+    // ... and attach this menu bar to the frame
+    SetMenuBar(m_menubar1);
